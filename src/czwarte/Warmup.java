@@ -50,4 +50,3 @@ public class Warmup {
         System.out.println("NumberWithoutZeros = " + numberWithoutZeros);
     }
 }
-
