@@ -1,5 +1,7 @@
 package tictactoe;
 
+import tictactoe.TicTacToeViews;
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -7,7 +9,7 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
         int answer;
         do {
-            TicTacToeViews.menuView();
+            tictactoe.TicTacToeViews.menuView();
             answer = scanner.nextInt();
             switch(answer) {
                 case 1:
@@ -24,18 +26,18 @@ public class TicTacToe {
         char[] board = "123456789".toCharArray();
         int i = 0;
         do {
-            TicTacToeViews.boardView(board);
+            tictactoe.TicTacToeViews.boardView(board);
             int position = askForPosition(scanner, board);
             mark(currentSign, board, position);
             currentSign = currentSign == 'X' ? circle : cross;
             i++;
         } while (i < 9 && !gameFinished(board));
-        TicTacToeViews.boardView(board);
+        tictactoe.TicTacToeViews.boardView(board);
         System.out.println("END OF GAME!");
         if (!gameFinished(board)) {
-            System.out.println("Draw");
+            tictactoe.TicTacToeViews.drawEndGame();
         } else {
-            System.out.println("And the loser is " + currentSign);
+            tictactoe.TicTacToeViews.loserEndGame(currentSign);
         }
     }
 
@@ -88,7 +90,7 @@ public class TicTacToe {
         do {
             position = scanner.nextInt();
             if (!isValidPosition(position, board)) {
-                System.out.println("Invalid value. Try again");
+                TicTacToeViews.invalidValueFromUserMessage();
             }
         } while(!isValidPosition(position, board));
         return position - 1;

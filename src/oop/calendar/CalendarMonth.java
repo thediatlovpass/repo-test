@@ -7,7 +7,7 @@ public class CalendarMonth {
 
     public static CalendarMonth currentMonth() {
         //TODO ZADANIE DOMOWE
-        //        LocalDate now = LocalDate.now();
+//                LocalDate now = LocalDate.now();
         return null;
     }
 
@@ -17,37 +17,41 @@ public class CalendarMonth {
         calendarMonth.days = createCalendarDays(year, month, numberOfDays);
         return calendarMonth;
     }
-    private static oop.calendar.CalendarDay[] createCalendarDays(int year, int month, int numberOfDays) {
-        oop.calendar.CalendarDay[] days = new oop.calendar.CalendarDay[numberOfDays];
+    private static CalendarDay[] createCalendarDays(int year, int month, int numberOfDays) {
+        CalendarDay[] days = new CalendarDay[numberOfDays];
         for (int i = 0; i < numberOfDays; i++) {
-            days[i] = new oop.calendar.CalendarDay(year, month, i + 1);
+            days[i] = new CalendarDay(year, month, i + 1);
         }
         return days;
     }
 
     private final String name;
-    private oop.calendar.CalendarDay[] days;
+    private CalendarDay[] days;
     private int startingWeekDay;
 
     public CalendarMonth(String name) {
         this.name = name;
     }
 
-    public CalendarMonth(String name, oop.calendar.CalendarDay[] days, int startingWeekDay) {
+    public CalendarMonth(String name, CalendarDay[] days, int startingWeekDay) {
         this.name = name;
         this.days = days;
         this.startingWeekDay = startingWeekDay;
+    }
+
+    public CalendarDay getCalendarDay(int dayNumber) {
+        return days[dayNumber - 1];
     }
 
     public String getName() {
         return name;
     }
 
-    public oop.calendar.CalendarDay[] getDays() {
+    public CalendarDay[] getDays() {
         return days;
     }
 
-    public void setDays(oop.calendar.CalendarDay[] days) {
+    public void setDays(CalendarDay[] days) {
         this.days = days;
     }
 
@@ -91,7 +95,7 @@ public class CalendarMonth {
         builder.append("\n");
     }
 
-    private String createCalendarDayElement(oop.calendar.CalendarDay calendarDay) {
+    private String createCalendarDayElement(CalendarDay calendarDay) {
         String calendarDayRepresentation = "" + calendarDay.getDay();
         calendarDayRepresentation += calendarDay.hasNote() ? "*" : " ";
         calendarDayRepresentation += calendarDay.getDay() >= 10 ? " " : "  ";

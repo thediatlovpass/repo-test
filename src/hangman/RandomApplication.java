@@ -17,7 +17,7 @@ public class RandomApplication {
     public static void main(String[] args) {
         //nowa tablica n elemntowa zlozona z loswych liczb
         //nowa tablica o wielkosci zdefiniowanej prze usera elemntowa zlozona z loswych liczb
-        //z zakresu podanego prze usera
+                //z zakresu podanego prze usera
         //suma loswych elementow
         //metoda symulujaca rzut kostka do gry (zwraca wartosc)
 

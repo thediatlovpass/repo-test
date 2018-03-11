@@ -14,3 +14,19 @@ public class Address {
         this.city = city;
         this.street = street;
         this.postalCode = postalCode;
+        this.number = number;
+    }
+
+    public void show() {
+        System.out.println(postalCode + " " + city +
+                ", ul. " + street + " " + number);
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+}

@@ -49,7 +49,6 @@ public class Warmup {
             if (endsWith(names[i], "a")) {
                 counter++;
             }
-
         }
         return counter;
     }

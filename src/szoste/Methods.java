@@ -1,5 +1,7 @@
 package szoste;
 
+import szoste.Warmup;
+
 import java.util.Arrays;
 
 public class Methods {
@@ -179,7 +181,7 @@ public class Methods {
     }
 
     public static String[] split2(String message, char c) {
-        int size = Warmup.lettersCounter(message, c) + 1;
+        int size = szoste.Warmup.lettersCounter(message, c) + 1;
         String[] resultArray = new String[size];
         int start = 0;
         int end;
@@ -197,7 +199,7 @@ public class Methods {
 
     //TODO
     public static String[] split(String message, char c) {
-        int size = Warmup.lettersCounter(message, c) + 1;
+        int size = szoste.Warmup.lettersCounter(message, c) + 1;
         String[] resultArray = new String[size];
         String textToPut = "";
         int j = 0;
@@ -251,7 +253,7 @@ public class Methods {
     public static boolean isPalindrome(String text) {
         char[] chars = text.toCharArray();
         int i = 0;
-        while (i < chars.length / 2 && (Warmup.capitalize(chars[i]) == Warmup.capitalize(chars[chars.length - i - 1]))) {
+        while (i < chars.length / 2 && (szoste.Warmup.capitalize(chars[i]) == Warmup.capitalize(chars[chars.length - i - 1]))) {
             i++;
         }
         return i == chars.length / 2;

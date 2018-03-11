@@ -1,5 +1,7 @@
 package todos;
 
+import todos.TodoViews;
+
 import java.util.Scanner;
 
 public class TodoApplication {
@@ -8,11 +10,31 @@ public class TodoApplication {
         String[] todos = new String[3];
         int index = 0;
         int decision;
+        do {
+            todos.TodoViews.menu();
+            decision = scanner.nextInt();
+            scanner.nextLine();
+            switch (decision) {
+                case 1:
+                    if (index == todos.length) {
+                        todos.TodoViews.noSpaceWarningMessage();
+                        todos.TodoViews.waitForUser(scanner);
+                    } else {
+                        addTodo(scanner, todos, index);
+                        index++;
+                    }
+                    break;
+                case 2:
+                    listTodos(todos, index);
+                    todos.TodoViews.waitForUser(scanner);
+                    break;
+            }
+        } while(decision != 0);
     }
 
     private static void addTodo(Scanner scanner, String[] todos, int index) {
         //pobieranie od usera
-        TodoViews.newTodoMessage();
+        todos.TodoViews.newTodoMessage();
         String newTodo = scanner.nextLine();
         //wstawianie do tablicy
         todos[index] = newTodo;

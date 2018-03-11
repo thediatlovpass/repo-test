@@ -1,4 +1,4 @@
-package opp.calendar;
+package oop.calendar;
 
 import java.util.Scanner;
 
@@ -6,11 +6,12 @@ public class CalendarApplication {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int answer;
-        oop.calendar.CalendarMonth calendarMonth = oop.calendar.CalendarMonth.of("March", 2018, 3, 31, 4);
+        CalendarMonth calendarMonth = CalendarMonth.of("March", 2018, 3, 31, 4); //TODO change to currentMonth
         do {
-            System.out.println("1. Show month");  // tutaj nazw miesieca   TODO
-            System.out.println("2. Switch month {year month}");
-            System.out.println("3. Next month");
+            System.out.println("1. Show month - {tutaj nazwa miesiaca}"); //TODO
+            System.out.println("2. Switch month {year month}"); //TODO
+            System.out.println("3. Next month"); //TODO
+            System.out.println("4. Previous month"); //TODO
             System.out.println("0. End");
             answer = scanner.nextInt();
             scanner.nextLine();
@@ -21,7 +22,6 @@ public class CalendarApplication {
                     break;
                 case 2:
                     switchMonth(scanner);
-
                     break;
                 default:
                     System.out.println("Invalid command");
@@ -30,7 +30,7 @@ public class CalendarApplication {
         } while (answer != 0);
     }
 
-    private static void showMonth(Scanner scanner, oop.calendar.CalendarMonth calendarMonth) {
+    private static void showMonth(Scanner scanner, CalendarMonth calendarMonth) {
         int option;
         do {
             System.out.println(calendarMonth);
@@ -42,8 +42,8 @@ public class CalendarApplication {
                     break;
                 case 2:
                     showNote(scanner, calendarMonth);
-                    scanner.nextInt();
-                    scanner.nextInt();
+                    scanner.nextLine();
+                    scanner.nextLine();
                     break;
                 case 3:
                     int dayNumber = scanner.nextInt();
@@ -55,17 +55,19 @@ public class CalendarApplication {
         } while (option != 0);
     }
 
-    private static void addNote(Scanner scanner, oop.calendar.CalendarMonth calendarMonth) {
+    private static void addNote(Scanner scanner, CalendarMonth calendarMonth) {
         int dayNumber = scanner.nextInt();
         String note = scanner.nextLine();
         calendarMonth.setNoteForDay(note, dayNumber);
     }
 
-    private static void showNote(Scanner scanner, oop.calendar.CalendarMonth calendarMonth) {
+    private static void showNote(Scanner scanner, CalendarMonth calendarMonth) {
         int numberOfDayToShow = scanner.nextInt();
-        calendarMonth.getCalendarDay(numberOfDayToShow);
-        if (calendarDay.hasNote()){
-            System.out.println(calendarDay.getNotes);
+        CalendarDay calendarDay = calendarMonth.getCalendarDay(numberOfDayToShow);
+        if (calendarDay.hasNote()) {
+            System.out.println(calendarDay.getNotes());
+        } else {
+            System.out.println("No notes available for this day");
         }
     }
 

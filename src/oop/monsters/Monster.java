@@ -1,8 +1,8 @@
-package opp.monster;
+package oop.monsters;
 
 public interface Monster {
     int attack();
-    int defence();
+    int defense();
     int getHealth();
     boolean isAlive();
 }
